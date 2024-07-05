@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD|HOME</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        function confirmDelete(userId) {
+            if (confirm("Are you sure you want to delete this user?")) {
+                window.location.href = `/delete/${userId}`;
+            }
+        }
+    </script>
+
+</head>
+<body>
+    
+    <div class="mb-24 pb-10 shadow-lg rounded-lg overflow-hidden mt-4 mx-4 md:mx-10">
+        <a href="/create" class="py-2 mt-6 mb-2 px-4 max-w-md flex justify-center items-center bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 focus:ring-offset-gray-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 ">Add Yourself</a>
+        <table class="w-full table-fixed">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Name</th>
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Email</th>
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Phone</th>
+                    <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Action</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white">
+               <% allUser.forEach(function(allUser){ %>
+                <tr>
+                    <td class="py-4 px-6 border-b border-gray-200"><%= allUser.name %></td>
+                    <td class="py-4 px-6 border-b border-gray-200 truncate"><%= allUser.email %> </td>
+                    <td class="py-4 px-6 border-b border-gray-200"><%= allUser.phone %></td>
+                    <td class="py-4 px-6 border-b border-gray-200">
+                        <a href="/update/<%= allUser._id %>" class="bg-blue-500 hover:bg-blue-700 text-white  text-xs font-bold py-2 px-4 rounded">Update</a>
+                        <a href="javascript:void(0);" onclick="confirmDelete('<%= allUser._id %>')" class="bg-red-500 hover:bg-red-700 text-white font-bold text-xs py-2 px-4 rounded">Delete</a>
+                        <!-- <a href="/delete/<%= allUser._id %>" class="bg-red-500 hover:bg-red-700 text-white font-bold text-xs py-2 px-4 rounded">Delete</a> -->
+                    </td>
+                </tr>
+            <% }) %>
+
+                <!-- Add more rows here -->
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
