@@ -18,18 +18,22 @@ A simple CRUD (Create, Read, Update, Delete) application built with Node.js, Exp
 
 
 ## Install dependencies:
+```bash
 npm install
 
 ## Start the MongoDB server:
+```bash
 mongod
 
 ## Run the application:
+```bash
+
 nodemon
-or
 npm start
 
 
 ## Visit the application:
+```bash
 Open your browser and go to http://localhost:3000
 
 ## Usage
