@@ -22,10 +22,3 @@ const accountSchema = mongoose.Schema({
 });
 
 module.exports = mongoose.Schema('account', accountSchema);
-module.exports = mongoose.Schema('account', accountSchema);
-module.exports = mongoose.Schema('account', accountSchema);
-module.exports = mongoose.Schema('account', accountSchema);
-module.exports = mongoose.Schema('account', accountSchema);
-module.exports = mongoose.Schema('account', accountSchema);
-module.exports = mongoose.Schema('account', accountSchema);
-module.exports = mongoose.Schema('account', accountSchema);
