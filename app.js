@@ -19,10 +19,10 @@ app.get('/create', async function (req, res) {
 });
 
 app.post('/create', async function (req, res) {
-    let {name, email, phone} = req.body;
+    let { name, email, phone } = req.body;
     const createdUser = await userModel.create({
-        name: name, 
-        email: email, 
+        name: name,
+        email: email,
         phone: phone,
     })
     // res.send(createdUser)
@@ -33,7 +33,7 @@ app.post('/create', async function (req, res) {
 app.get('/read-data', async function (req, res) {
     let allUser = await userModel.find()
     // console.log(allUser)
-    res.render('read', {allUser: allUser});
+    res.render('read', { allUser: allUser });
 });
 
 
@@ -55,7 +55,27 @@ app.get('/delete/:id', async function (req, res) {
     res.redirect('/read-data');
 });
 
+//signup 
+app.get('/signup', (req, res) => {
+    res.render('create');
+});
 
-app.listen(3000, ()=> {
+//login
+app.get('/login', (req, res) => {
+    res.render('login');
+});
+
+//user profile
+app.get('/profile', (req, res) => {
+    res.render('profile');
+});
+
+//logout 
+app.get('/logout', (req, res) => {
+    res.render('logout')
+});
+
+
+app.listen(3000, () => {
     console.log("Server listining");
 });
